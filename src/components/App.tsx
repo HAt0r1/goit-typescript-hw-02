@@ -64,10 +64,8 @@ const App: React.FC = () => {
     setModalData({ url, alt });
   };
 
-  const closeModal = (event: React.KeyboardEvent<Element>): void => {
-    if (event.key === "ESC") {
-      setIsOpen(false);
-    }
+  const closeModal = (): void => {
+    setIsOpen(false);
   };
 
   return (

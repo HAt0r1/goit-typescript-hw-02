@@ -2,8 +2,12 @@ import { BsSearch } from "react-icons/bs";
 import toast from "react-hot-toast";
 import style from "./SearchBar.module.css";
 
-const SearchBar = ({ onSubmit }) => {
-  const handleFormSubmit = (event) => {
+interface SearchBarProp {
+  onSubmit: (value: string) => void;
+}
+
+const SearchBar = ({ onSubmit }: SearchBarProp) => {
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target;
     const inputValue = form.search.value.trim();

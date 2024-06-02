@@ -1,9 +1,14 @@
 import style from "./ImageCard.module.css";
 
-const ImageCard = ({ pic, alt, onOpen }) => {
+interface ImageCardProp {
+  pic: string;
+  alt: string;
+}
+
+const ImageCard = ({ pic, alt }: ImageCardProp) => {
   return (
     <div className={style.pictureContainer}>
-      <img onClick={onOpen} className={style.picture} src={pic} alt={alt} />
+      <img className={style.picture} src={pic} alt={alt} />
     </div>
   );
 };

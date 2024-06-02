@@ -2,7 +2,22 @@ import Modal from "react-modal";
 import style from "./ImageModal.module.css";
 Modal.setAppElement("#root");
 
-const ImageModal = ({ openState, closeState, data: { url, alt } }) => {
+interface ImageModalProp {
+  openState: boolean;
+  closeState: (
+    event: React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>
+  ) => void;
+  data: {
+    url: string;
+    alt: string;
+  };
+}
+
+const ImageModal = ({
+  openState,
+  closeState,
+  data: { url, alt },
+}: ImageModalProp) => {
   return (
     <Modal
       className={style.modal}

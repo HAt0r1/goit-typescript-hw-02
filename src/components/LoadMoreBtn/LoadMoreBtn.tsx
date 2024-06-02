@@ -1,6 +1,10 @@
 import style from "./LoadMoreBtn.module.css";
 
-const LoadMoreBtn = ({ onClick }) => {
+interface LoadMoreBtnProp {
+  onClick: () => void;
+}
+
+const LoadMoreBtn = ({ onClick }: LoadMoreBtnProp) => {
   return (
     <div className={style.container}>
       <button onClick={onClick} className={style.button} type="button">

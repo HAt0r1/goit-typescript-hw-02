@@ -4,9 +4,7 @@ Modal.setAppElement("#root");
 
 interface ImageModalProp {
   openState: boolean;
-  closeState: (
-    event: React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>
-  ) => void;
+  closeState: (event: React.KeyboardEvent<Element>) => void;
   data: {
     url: string;
     alt: string;

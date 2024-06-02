@@ -9,8 +9,10 @@ interface SearchBarProp {
 const SearchBar = ({ onSubmit }: SearchBarProp) => {
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.target;
-    const inputValue = form.search.value.trim();
+    const seacrhItem = event.currentTarget.elements.namedItem(
+      "search"
+    ) as HTMLInputElement;
+    const inputValue = seacrhItem.value.trim();
     if (inputValue === "") {
       toast.error("Search field is empty. Please put text into field.", {
         duration: 2000,
@@ -23,7 +25,7 @@ const SearchBar = ({ onSubmit }: SearchBarProp) => {
     } else {
       onSubmit(inputValue);
     }
-    form.reset();
+    event.currentTarget.reset();
   };
 
   return (

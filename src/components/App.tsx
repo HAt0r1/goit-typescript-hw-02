@@ -17,7 +17,7 @@ interface IModal {
   alt: string;
 }
 
-const App = () => {
+const App: React.FC = () => {
   // State variables
   const [pictures, setPictures] = useState<Array<responceResult>>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -41,7 +41,6 @@ const App = () => {
       try {
         setIsLoading(true);
         const data = await getData(keyWord, page);
-        console.log(data);
 
         setPictures((prev) => {
           return [...prev, ...data];
@@ -65,10 +64,8 @@ const App = () => {
     setModalData({ url, alt });
   };
 
-  const closeModal = (
-    event: React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>
-  ) => {
-    if (event.key === "ESC" || event.target === event.currentTarget) {
+  const closeModal = (event: React.KeyboardEvent<Element>): void => {
+    if (event.key === "ESC") {
       setIsOpen(false);
     }
   };
